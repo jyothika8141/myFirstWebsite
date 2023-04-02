@@ -7,8 +7,8 @@ def generate_unique_token():
 
 # Create your models here.
 class User(models.Model):
-    token = models.CharField(max_length=8, default=generate_unique_token, unique=True)
-    available = models.BooleanField(default=True)
+    token = models.CharField(max_length=8, default=generate_unique_token)
+    available = models.BooleanField(null=False, default=False)
     name_person = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
@@ -23,3 +23,4 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+    

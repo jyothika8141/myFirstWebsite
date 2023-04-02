@@ -8,10 +8,10 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('token', 'available', 'name_person', 'email', 'phone', 'name_place', 'place_specialitity', 'accommodation', 'address', 'district', 'state', 'pincode', 'created_at')
+        fields = ('id', 'token', 'available', 'name_person', 'email', 'phone', 'name_place', 'place_specialitity', 'accommodation', 'address', 'district', 'state', 'pincode', 'created_at')
 
 class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('token', 'available', 'name_person', 'email', 'phone', 'name_place', 'place_specialitity', 'accommodation', 'address', 'district', 'state', 'pincode')
+        fields = ('name_person', 'email', 'phone', 'name_place', 'place_specialitity', 'accommodation', 'address', 'district', 'state', 'pincode', 'available')
         
