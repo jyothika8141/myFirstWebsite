@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import HomePage from './HomePage';
-import PlaceSelect from './PlaceSelect';
-import PlaceDisplay from './PlaceDisplay';
+// import PlaceSelect from './PlaceSelect';
+// import PlaceDisplay from './PlaceDisplay';
+
 
 export default class App extends Component {
     constructor(props) {
@@ -14,10 +15,10 @@ export default class App extends Component {
             <div>
                 <HomePage />;
 
-            
             </div>
         );
     }
 }
+
 const appDiv = document.getElementById('app');
-render (<App name="jyothika" />, appDiv);
+render(<App />, appDiv);

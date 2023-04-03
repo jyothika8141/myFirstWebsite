@@ -32,7 +32,7 @@ class CreateUserView(APIView):
             email = serializer.data.get('email')
             phone = serializer.data.get('phone')
             name_place = serializer.data.get('name_place')
-            place_specialitity = serializer.data.get('place_specialitity')
+            place_speciality = serializer.data.get('place_speciality')
             accommodation = serializer.data.get('accommodation')
             address = serializer.data.get('address')
             district = serializer.data.get('district')
@@ -48,7 +48,7 @@ class CreateUserView(APIView):
             #     user.save(update_fields=['available'])
             #     return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
             # else:
-            user = User(token=token, available=available, name_person=name_person, email=email, phone=phone, name_place=name_place, place_specialitity=place_specialitity, accommodation=accommodation, address=address, district=district, state=state, pincode=pincode)
+            user = User(token=token, available=available, name_person=name_person, email=email, phone=phone, name_place=name_place, place_speciality=place_speciality, accommodation=accommodation, address=address, district=district, state=state, pincode=pincode)
             user.save()
             return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
         print(serializer.errors)
