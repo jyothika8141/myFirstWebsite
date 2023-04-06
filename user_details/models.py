@@ -11,14 +11,13 @@ def generate_unique_token():
 
 # Create your models here.
 class User(models.Model):
-    token = models.CharField(max_length=8, default=generate_unique_token)
+    token = models.CharField(max_length=50)
     available = models.BooleanField(null=False, default=False)
     name_person = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
     name_place = models.CharField(max_length=50)
     place_speciality = models.CharField(max_length=500)
-    accommodation = models.CharField(max_length=100)
     address = models.CharField(max_length=50)
     district = models.CharField(max_length=50)
     state = models.CharField(max_length=50)

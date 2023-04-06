@@ -15,7 +15,6 @@ export default class Login extends Component {
             phone: "",
             name_place: "",
             place_speciality: "",
-            accommodation: "",
             address: "",
             district: "",
             state: "",
@@ -27,7 +26,6 @@ export default class Login extends Component {
         this.handlePhoneChange = this.handlePhoneChange.bind(this);
         this.handleNamePlaceChange = this.handleNamePlaceChange.bind(this);
         this.handlePlaceSpecialityChange = this.handlePlaceSpecialityChange.bind(this);
-        this.handleAccommodationChange = this.handleAccommodationChange.bind(this);
         this.handleAddressChange = this.handleAddressChange.bind(this);
         this.handleDistrictChange = this.handleDistrictChange.bind(this);
         this.handleStateChange = this.handleStateChange.bind(this);
@@ -70,12 +68,6 @@ export default class Login extends Component {
         });
     }
 
-    handleAccommodationChange = (e) => {
-        this.setState({
-            accommodation: e.target.value,
-        });
-    }
-
     handleAddressChange = (e) => {
         this.setState({
             address: e.target.value,
@@ -112,7 +104,6 @@ export default class Login extends Component {
           phone: this.state.phone,
           name_place: this.state.name_place,
           place_speciality: this.state.place_speciality,
-          accommodation: this.state.accommodation,
           address: this.state.address,
           district: this.state.district,
           state: this.state.state,
@@ -121,7 +112,7 @@ export default class Login extends Component {
       };
       fetch("/userdetails/create", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) =>  console.log(data));
       }
 
     render() {
@@ -175,12 +166,6 @@ export default class Login extends Component {
                 <FormHelperText>
                   <div align="center">
                     Speciality of the place
-                  </div>
-                </FormHelperText>
-                <TextField required={true} type="text" defaultValue="" onChange={this.handleAccommodationChange} inputProps={{min: 0, style: { textAlign: 'center' }}} />
-                <FormHelperText>
-                  <div align="center">
-                    Accommodation
                   </div>
                 </FormHelperText>
                 <TextField required={true} type="text" defaultValue="" onChange={this.handleAddressChange} inputProps={{min: 0, style: { textAlign: 'center' }}} />

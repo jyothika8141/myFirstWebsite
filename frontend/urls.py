@@ -6,4 +6,6 @@ urlpatterns = [
     path('login', index),
     path('select', index),
     path('display', index),
+    # path('loginprofile', index),
+    path('loginprofile/<str:id>', index),
 ]

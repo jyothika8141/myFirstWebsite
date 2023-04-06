@@ -14,6 +14,22 @@ class UserView(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+class GetUser(APIView):
+    serializer_class = UserSerializer
+    lookup_field = 'id'
+
+    def get(self, request, format=None):
+        id = request.GET.get(self.lookup_field)
+        if id is not None:
+            user = User.objects.filter(id=id)
+            if len(user) > 0:
+                data = UserSerializer(user[0]).data
+                # token['ishost'] = self.request.session.session_key == user[0].token
+                return Response(data, status=status.HTTP_200_OK)
+            return Response("Invalid ID", status=status.HTTP_400_BAD_REQUEST)
+        return Response("Bad Request", status=status.HTTP_400_BAD_REQUEST)
+
+
 class CreateUserView(APIView):
     serializer_class = CreateUserSerializer
 
@@ -25,15 +41,12 @@ class CreateUserView(APIView):
         print(serializer)
         
         if serializer.is_valid():
-            print("yo")
-            token = serializer.data.get('token')
             name_person = serializer.data.get('name_person')
             available = serializer.data.get('available')
             email = serializer.data.get('email')
             phone = serializer.data.get('phone')
             name_place = serializer.data.get('name_place')
             place_speciality = serializer.data.get('place_speciality')
-            accommodation = serializer.data.get('accommodation')
             address = serializer.data.get('address')
             district = serializer.data.get('district')
             state = serializer.data.get('state')
@@ -48,7 +61,7 @@ class CreateUserView(APIView):
             #     user.save(update_fields=['available'])
             #     return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
             # else:
-            user = User(token=token, available=available, name_person=name_person, email=email, phone=phone, name_place=name_place, place_speciality=place_speciality, accommodation=accommodation, address=address, district=district, state=state, pincode=pincode)
+            user = User(token=token, available=available, name_person=name_person, email=email, phone=phone, name_place=name_place, place_speciality=place_speciality, address=address, district=district, state=state, pincode=pincode)
             user.save()
             return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
         print(serializer.errors)
