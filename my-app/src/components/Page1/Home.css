@@ -1,0 +1,44 @@
+.home {
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-image: url("./landscape1.jpg"); 
+    height: 89.5vh;
+    padding-top: 6vw;
+    padding-left: 8vw;
+    /* margin-bottom: 20vh; */
+}
+
+h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    padding-bottom: 1vw;
+    /* color: aqua; */
+}
+
+h3 {
+    font-size: 1.7rem;
+    font-weight: 400;
+    padding-bottom: 0vh
+}
+
+
+p { 
+    width: 40vw;
+    font-size: 1.25rem;
+    font-weight: 300;
+    padding-bottom: 2vh;
+}
+
+#explore {
+    padding: 1.5vw;
+    background-color: black;
+    border: black;
+    font-size: 30px;
+    color: white;
+    border-radius: 20px;
+
+}
+
+.explore{
+    color: white
+}
