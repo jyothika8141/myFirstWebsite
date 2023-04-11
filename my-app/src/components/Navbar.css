@@ -9,8 +9,6 @@
 }
 
 .navbar .navbar_logo {
-  flex: 50%;
-  /* height: 100%; */
   display: flex;
   align-items: center;
   padding-left: 50px;
@@ -18,8 +16,9 @@
 
 .navbar .navbar_logo img {
   position: relative;
-  width: 120px;
+  /* width: 120px; */
   border-radius: 5%;
+  height: 70%
 }
 
 .navbar .rightSide {

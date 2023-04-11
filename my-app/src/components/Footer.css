@@ -1,0 +1,16 @@
+footer {
+    color: white;
+    background-color: black;
+    height: 40vh;
+    bottom: 0;
+    text-align: center;
+    display: column-reverse;
+}
+
+/* .para {
+    position: absolute;
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 70%;
+
+} */

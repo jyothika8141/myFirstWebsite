@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import './Register.css';
-import Navbar from '../Navbar';
 import axios from 'axios';
+
+import { motion } from 'framer-motion/dist/framer-motion';
 
 export default function Form(){
 
@@ -49,13 +50,22 @@ export default function Form(){
         });
     }
     return (
-        <div> 
-            <Navbar /> 
-        <div className='body'> 
-        <div className = "form-box">
+        <motion.div 
+            className='register'
+            
+            initial={{width: 0}}
+            animate={{width: '100%', transition: {duration: 0.1}}}
+            exit={{ x: window.innerWidth, transition: {duration: 0.1} }}
+             
+            > 
+        <motion.div 
+                className = "form-box"
+                
+               initial={{height: 0}}
+               animate={{height: '85vh', transition: {duration: 0.1}}}
+               exit={{ x: window.innerWidth, transition: {duration: 0.1} }}>
 
             <h1 className = "form-title"> Register your place </h1>
-            <p id="para">and earn a side income !!</p>
             <form class="Labels" >
 
                 <div className = "place-details">
@@ -127,7 +137,6 @@ export default function Form(){
                
                <button 
                 type = "submit"
-                id= "submitBtn"
                 className = "submitBtn" 
                 onClick = { submitForm }
                 > <Link id="t" to="/"> Submit </Link></button>
@@ -136,8 +145,8 @@ export default function Form(){
 
             </form>
 
-        </div>
-        </div>
-        </div>
+        </motion.div>   
+        </motion.div>
+
     )
 }

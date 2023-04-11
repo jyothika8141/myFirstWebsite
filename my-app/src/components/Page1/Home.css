@@ -1,11 +1,11 @@
 .home {
-    /* background-attachment: fixed; */
     background-size: cover;
     background-image: url("./landscape1.jpg"); 
     height: 89.5vh;
     padding-top: 6vw;
     padding-left: 8vw;
-    /* margin-bottom: 20vh; */
+    
+
 }
 
 h1 {
@@ -42,3 +42,101 @@ p {
 .explore{
     color: white
 }
+
+.below{
+    vertical-align: middle;
+    text-align: center;
+    align-items: center;
+    color: rgb(32, 32, 93); 
+    background-color: rgb(253, 229, 211);
+    padding: 2vw;
+}
+
+.vision{
+    width: 50vw;
+    font: 3rem;
+    position: relative;
+    padding: 3vw;
+    flex-direction: column;
+    justify-content: center;
+  
+    align-items: center;
+
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    padding-bottom: 2vw;
+}
+
+h3 {
+    font-size: 5 rem;
+}
+
+.images{ 
+    justify-content: center;
+    display: flex;
+    /* padding-left: 10vw; */
+}
+#img{
+    
+    padding-top: 50px;
+    width: 17vw;
+    padding-bottom: 5vw;
+    object-fit: cover;
+    /* padding: m; */
+    /* height: 10vw; */
+}
+
+#img2 {
+    
+    padding-top: 50px;
+    width: 28vw;
+    padding-bottom: 5vw;
+    object-fit: cover;
+    /* padding: m; */
+    /* height: 10vw; */
+}
+
+#img2:hover, #img:hover {
+    opacity: 0.5;
+    overflow: hidden;
+    transform: rotateY(30deg);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.03);
+    transition: 1s ease;
+  }
+  
+/* .img:hover .middle {
+opacity: 1;
+}
+   */
+  .text {
+    display: none;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgb(8, 8, 8);
+  }
+
+#img:hover + .text {
+    position: absolute;
+    display: block;
+    text-align: center;
+    
+
+}
+
+#img2:hover + .text {
+    position: absolute;
+    display: block;
+    text-align: center;
+}
+

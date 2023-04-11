@@ -1,4 +1,42 @@
-.explore-page {
-    background-color: antiquewhite;
-    min-height: 100vh;
+.main {
+    min-height: 100%;
+    margin: 7vh 20vh;
+    
+}
+
+
+.card{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    /* gap: 0.1rem; */
+    
+}
+
+.container {
+    /* border: 1px solid #645959; */
+    padding: 25px
+
+    
+
+}
+.container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    
+   
+}
+
+
+img{
+    border-radius: 15px;
+  }
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.bookBtn {
+    text-align: center;
+    font-size: 1rem;
 }

@@ -1,21 +1,26 @@
 import React  from "react";
 import './App.css';
-import Home from "./components/Page1/Home";
-import Register from "./components/Register/Register";
-import { BrowserRouter as Router, Routes, Route, Link, Redirect} from "react-router-dom";
-import Search from "./components/Page2/Search";
+import AppRoutes  from "./AppRoutes";
+
+
+import { BrowserRouter as Router} from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+
 
 const App = () => {
+
   return(
-    <>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </Router>    
-    </>
+
+    <Router >
+      <Navbar />
+      <AppRoutes />
+      {/* <Footer /> */}
+    </Router>  
+
+
   )}
 
   export default App;

@@ -1,16 +1,63 @@
 import React from "react";
-import Navbar from "../Navbar";
 import "./Home.css";
-// import Search from "../Page2/Search";
 import { Link } from "react-router-dom";
-// import Header from "./Header";
-// import ScrollToTop from "./ScrollToTop"
-// import { img } from "./landscape1.jpg"
+import { ImageList, ImageListItem } from '@mui/material';
+import { motion } from 'framer-motion/dist/framer-motion';
+
+
+
 
 const Home = () => {
+  const itemData = [
+    {
+      img: 'https://images.unsplash.com/photo-1543502708-eb29f9b35f17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8',
+      // img: '../../static/images/theyyam.jpg',
+      title: 'theyyam',
+    },
+    {
+      img: 'https://media.istockphoto.com/id/480371499/photo/warli-painting-india.jpg?s=2048x2048&w=is&k=20&c=WuuAKbsL5Y9MIFsToPrppw9tH0-Jgzz2v_sP7IQSVps=',
+      title: 'warli painting',
+    },
+    {
+      img: 'https://grazia.wwmindia.com/content/2020/aug/nationalhandloomday111596785725.jpg',
+      title: 'weaving',
+    },
+    {
+      img: 'https://gumlet.assettype.com/knocksense%2Fimport%2F26024934%2Forigin.jpg?auto=format%2Ccompress&fit=max&format=webp&w=480&dpr=2.6',
+      title: 'kathputli',
+    },
+  ];
+
+  const itemData2 = [
+    {
+      img: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Karzok_Tso_Moriri.jpg',
+      title: 'Ladakh',
+    },
+    {
+      img: 'https://static.toiimg.com/thumb/msid-82997043,width-748,height-499,resizemode=4,imgsize-1137981/.jpg',
+      title: 'Malari',
+    },
+    
+    {
+      img: 'https://assets.traveltriangle.com/blog/wp-content/uploads/2016/11/Mawlynnong.jpg',
+      title: 'Mawlynnong',
+    },
+    // {
+    //   img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+    //   title: 'Coffee',
+    // },
+  ];
+
+
   return (
-    <div>
-      <Navbar />
+    <motion.div 
+    className='body'
+    
+    initial={{width: 0}}
+    animate={{width: '100%', transition: {duration: 1}} }
+    exit={{ x: window.innerWidth, transition: {duration: 1} }}
+     
+    > 
       <main className="home">
         <div className="container_1">
           {/* <img id="bg" src="./landscape1.jpg" alt="landscape" /> */}
@@ -24,7 +71,7 @@ const Home = () => {
               way of life that can be found outside of the cities."</b>
             </p>
             <p><b>
-              Let's emabark on a journey to explore the rural areas of India and
+              Let's embark on a journey to explore the rural areas of India and
               discover the richness of its cultural heritage.
             </b></p>
           </div>
@@ -32,8 +79,66 @@ const Home = () => {
           <Link to="/search"><button id="explore"><b> Explore </b></button></Link> 
           </div>
         </div>
+        
+ 
       </main>
-    </div>
+      <div className="below">
+      <div className="vision">
+          <h2> Our Vision </h2>
+          
+          <b>Our vision is to harness the cultural and natural resources of rural areas to develop a sustainable tourism sector that provides engaging and authentic experiences for visitors, while promoting local employment, preserving local heritage and culture, and empowering rural communities.</b> 
+        </div>
+        <div className="culture">
+          <h3> <b>Discover the rich cultural heritage </b>  </h3>
+        <div class="images">
+          <ImageList cols={4}>
+            {itemData.map((item) => (
+              <ImageListItem key={item.img}>
+                <img id="img"
+                  src={`${item.img}`}
+                  // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                  alt={item.title}
+                  loading="lazy"
+                />
+                <div className="text">
+                   {item.title} 
+                </div>
+              </ImageListItem>
+
+            ))}
+          </ImageList>
+          </div>
+
+
+
+          </div>
+
+        <div className="quiet">
+          <h3> <b>Enjoy the stillness </b> </h3>
+
+          <div class="images">
+          <ImageList cols={3}>
+            {itemData2.map((item) => (
+              <ImageListItem key={item.img}>
+                <img id="img2"
+                  src={`${item.img}`}
+                  // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                  alt={item.title}
+                  loading="lazy"
+                />
+                <div className="text">
+                   {item.title} 
+                </div>
+              </ImageListItem>
+
+            ))}
+          </ImageList>
+          </div>
+
+        </div>
+        </div>
+ 
+    </motion.div>
   );
 };
 
