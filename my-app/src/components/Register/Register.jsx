@@ -17,6 +17,7 @@ export default function Form(){
         email: "",
         
         price: "",
+        image: "",
     })
 
     const updateForm = (e) => {
@@ -34,7 +35,8 @@ export default function Form(){
             "name_person" : form.name_person,
             "email" : form.email,
             "phone" : form.phone,
-            "price" : form.price
+            "price" : form.price,
+            "image" : form.image
         } 
 
     const submitForm = (e) => {
@@ -68,6 +70,36 @@ export default function Form(){
             <h1 className = "form-title"> Register your place </h1>
             <form class="Labels" >
 
+            <div className = "person-details">
+                <label><b> Person details </b></label>
+                <input 
+                    type ="text" 
+                    className = "form-input"
+                    name ="name_person" 
+                    placeholder="Name"
+                    onChange ={updateForm} 
+                    value = {form.name_person}
+                />
+
+                <input 
+                    type ="text" 
+                    className = "form-input"
+                    name ="phone" 
+                    placeholder="Phone number"
+                    onChange ={updateForm} 
+                    value = {form.phone}
+                />
+                <input 
+                    type ="text" 
+                    className = "form-input"
+                    name ="email" 
+                    placeholder="Email"
+                    onChange ={updateForm} 
+                    value = {form.email}
+                />
+
+                </div>
+
                 <div className = "place-details">
                 <label><b> Place details </b></label>
             
@@ -97,35 +129,8 @@ export default function Form(){
                     onChange ={updateForm} 
                     value = {form.state}
                 />
-                </div>
                 
-                <div className = "person-details">
-                <label><b> Person details </b></label>
-                <input 
-                    type ="text" 
-                    className = "form-input"
-                    name ="name_person" 
-                    placeholder="Name"
-                    onChange ={updateForm} 
-                    value = {form.name_person}
-                />
-
-                <input 
-                    type ="text" 
-                    className = "form-input"
-                    name ="phone" 
-                    placeholder="Phone number"
-                    onChange ={updateForm} 
-                    value = {form.phone}
-                />
-                <input 
-                    type ="text" 
-                    className = "form-input"
-                    name ="email" 
-                    placeholder="Email"
-                    onChange ={updateForm} 
-                    value = {form.email}
-                />
+                
                 <input 
                     type ="text" 
                     className = "form-input"
@@ -134,14 +139,26 @@ export default function Form(){
                     onChange ={updateForm} 
                     value = {form.price}
                 />
+
+                <input 
+                    type ="file-upload-input" 
+                    className = "file"
+                    // onChange="readURL(this)"
+                    accept='Image/*'
+                    name ="images" 
+                    placeholder="Add image"
+                    onChange ={updateForm} 
+                    value = {form.image}
+                />
+               
+                </div>
                
                <button 
                 type = "submit"
                 className = "submitBtn" 
                 onClick = { submitForm }
                 > <Link id="t" to="/"> Submit </Link></button>
-                
-                </div>
+           
 
             </form>
 

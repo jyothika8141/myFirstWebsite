@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import image from "./land.jpeg";
-import { Button} from '@mui/material';
+import { Button, Input, InputAdornment } from '@mui/material';
 
 import "./Search.css";
 import {useState} from 'react';
@@ -29,13 +29,12 @@ function Search(){
         }, []);
         
     console.log(details);  
-
     
     const userinfo = details.map(detail => (
         <div className="cards">
             <div className="container">
             <div className="img">
-                    <img src={ image } alt="image" width="450px"/>
+                    <img src={ detail.image } alt="image" width="450px" height="300px"/>
                 </div>
                 <div className="title">
                     <h3>{detail.name_place}</h3>
@@ -48,10 +47,9 @@ function Search(){
                     <h5> Name : {detail.name_person}</h5>
                     <h5>Phone : {detail.phone}</h5>
                     <h5>Email : {detail.email}</h5>
-                    
                 </div>
                 <div className="bookBtn">
-                <Button>BOOK</Button>
+                <Button> <b> BOOK </b> </Button>
                 </div>
                 
             </div>
@@ -60,24 +58,27 @@ function Search(){
     ))
     return(
         <div className="main">
-
-             <div className="explorepage">
-            <h3> Search </h3>
-            <form className="Search" >
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            <div className="Search" >
+            <i class="fa-solid fa-magnifying-glass" style={{color: "#2d2e10",}}></i>
                 <input 
                     type ="text" 
                     className = "form-input"
                     name ="state" 
                     placeholder="State"
+                    // startAdornment={
+                    //     <InputAdornment position="start">
+                    //         <img src="./icon.svg" alt="yo"></img>
+                    //     </InputAdornment>
+                    // }
                     onChange ={updateForm} 
                     value = {form.state}
                 />
-                <button 
-                type = "submit"
-                id= "searchbtn"
-                className = "searchbtn" 
-                > Search </button>
-            </form>
+                <button
+                    type = "submit"
+                    id= "searchbtn"
+                    className = "searchbtn" 
+                    > Search </button>
             </div>
             <div class="card">
 

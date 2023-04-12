@@ -5,6 +5,18 @@
 }
 
 
+.Search {
+    display: flex;
+    margin-left: 0;
+    /* float: left; */
+
+}
+
+.form-input input{
+    border-radius: 50%;
+}
+
+
 .card{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));

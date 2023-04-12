@@ -5,15 +5,16 @@ this page converts the data from the database into json format
 """
 
 from rest_framework import serializers
-from .models import User
+from .models import UserDet
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'name_place', 'district', 'state',  'name_person', 'email', 'phone', 'price')
+        model = UserDet
+        fields = ('id', 'name_place', 'district', 'state',  'name_person', 'email', 'phone', 'price', 'image')
 
 class CreateUserSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(max_length=None, use_url=True)
     class Meta:
-        model = User
-        fields = ('name_place', 'district', 'state',  'name_person', 'email', 'phone', 'price')
+        model = UserDet
+        fields = ('name_place', 'district', 'state',  'name_person', 'email', 'phone', 'price', 'image')
         
