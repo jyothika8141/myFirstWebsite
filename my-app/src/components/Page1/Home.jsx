@@ -11,7 +11,6 @@ const Home = () => {
   const itemData = [
     {
       img: 'https://images.unsplash.com/photo-1543502708-eb29f9b35f17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8',
-      // img: '../../static/images/theyyam.jpg',
       title: 'theyyam',
     },
     {
@@ -37,27 +36,24 @@ const Home = () => {
       img: 'https://static.toiimg.com/thumb/msid-82997043,width-748,height-499,resizemode=4,imgsize-1137981/.jpg',
       title: 'Malari',
     },
-    
     {
       img: 'https://assets.traveltriangle.com/blog/wp-content/uploads/2016/11/Mawlynnong.jpg',
       title: 'Mawlynnong',
     },
-    // {
-    //   img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    //   title: 'Coffee',
-    // },
   ];
 
 
   return (
     <motion.div 
     className='body'
-    
-    initial={{width: 0}}
-    animate={{width: '100%', transition: {duration: 1}} }
-    exit={{ x: window.innerWidth, transition: {duration: 1} }}
+                    
+    initial={{width: '50%'}}
+    animate={{width: '100%', transition: {duration: 0.8}} }
+    exit={{ x: window.innerWidth, transition: {duration: 0.5} }}
+      > 
+
      
-    > 
+    
       <main className="home">
         <div className="container_1">
           {/* <img id="bg" src="./landscape1.jpg" alt="landscape" /> */}
@@ -76,7 +72,7 @@ const Home = () => {
             </b></p>
           </div>
           <div className="explore">
-          <Link to="/search"><button id="explore"><b> Explore </b></button></Link> 
+          <Link to="/search"> <button id="explore"><b> Explore </b> </button></Link> 
           </div>
         </div>
         
@@ -86,19 +82,18 @@ const Home = () => {
       <div className="vision">
           <h2> Our Vision </h2>
           
-          <b>Our vision is to harness the cultural and natural resources of rural areas to develop a sustainable tourism sector that provides engaging and authentic experiences for visitors, while promoting local employment, preserving local heritage and culture, and empowering rural communities.</b> 
+          <p><b>Our vision is to harness the cultural and natural resources of rural areas to develop a sustainable tourism sector that provides engaging and authentic experiences for visitors, while promoting local employment, preserving local heritage and culture, and empowering rural communities.</b> </p>
         </div>
+
         <div className="culture">
-          <h3> <b>Discover the rich cultural heritage </b>  </h3>
+        <p> <b>Discover the rich cultural heritage</b> </p>
         <div class="images">
           <ImageList cols={4}>
             {itemData.map((item) => (
               <ImageListItem key={item.img}>
                 <img id="img"
                   src={`${item.img}`}
-                  // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                   alt={item.title}
-                  loading="lazy"
                 />
                 <div className="text">
                    {item.title} 
@@ -109,12 +104,10 @@ const Home = () => {
           </ImageList>
           </div>
 
-
-
           </div>
 
         <div className="quiet">
-          <h3> <b>Enjoy the stillness </b> </h3>
+          <p> <b>Experience the peacefulness </b> </p>
 
           <div class="images">
           <ImageList cols={3}>
@@ -122,22 +115,19 @@ const Home = () => {
               <ImageListItem key={item.img}>
                 <img id="img2"
                   src={`${item.img}`}
-                  // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                   alt={item.title}
                   loading="lazy"
                 />
                 <div className="text">
-                   {item.title} 
+                   {item.title}
                 </div>
               </ImageListItem>
 
             ))}
           </ImageList>
           </div>
-
         </div>
         </div>
- 
     </motion.div>
   );
 };

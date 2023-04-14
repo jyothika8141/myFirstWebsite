@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
-import image from "./land.jpeg";
-import { Button, Input, InputAdornment } from '@mui/material';
-
+import { Button } from '@mui/material';
+import { Search } from '@mui/icons-material';
+import { FaSearch } from 'react-icons/fa';
 import "./Search.css";
 import {useState} from 'react';
 
-function Search(){
+
+function SearchFunc(){
     const [form, setForm] = useState({
-        district: ""
+        state: ""
     });
 
     const [details, setDetails] = useState([]);
+    const [details2, setDetails2] = useState([]);
+
 
     const updateForm = (e) => {
         setForm ({
@@ -21,15 +24,16 @@ function Search(){
         console.log(form)
     }
 
+
     useEffect(() => {
         fetch('userdetails/get')
         .then(response => response.json())
         .then((data) => {
-            setDetails(data);})
+            setDetails(data);
+            setDetails2(data);})
+
         }, []);
-        
-    console.log(details);  
-    
+            
     const userinfo = details.map(detail => (
         <div className="cards">
             <div className="container">
@@ -52,33 +56,56 @@ function Search(){
                 <Button> <b> BOOK </b> </Button>
                 </div>
                 
+
             </div>
   
          </div>
     ))
+    
+    function Searching(){
+        console.log(form.state)
+        if (form.state == ""){
+           setDetails(details2)
+        }
+        else{
+        let detail_state= [];
+        for(var i=0; i<details2.length; i++){
+            if(form.state === details2[i].state){
+                console.log("found");    
+                detail_state.push(details2[i]);           
+            }
+            else{
+                console.log("not found");
+            }
+        }
+
+        console.log(detail_state);
+        setDetails(detail_state);
+    }
+}
+
+    const handleKeypress = e => {
+        if (e.keyCode === 13) {
+        Searching();
+        }
+    };
+
+
     return(
         <div className="main">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-            <div className="Search" >
-            <i class="fa-solid fa-magnifying-glass" style={{color: "#2d2e10",}}></i>
+            <div className="search" tabIndex={0} onKeyDown = {handleKeypress}>
+            <FaSearch className="search-icon" />
                 <input 
+                
                     type ="text" 
                     className = "form-input"
                     name ="state" 
-                    placeholder="State"
-                    // startAdornment={
-                    //     <InputAdornment position="start">
-                    //         <img src="./icon.svg" alt="yo"></img>
-                    //     </InputAdornment>
-                    // }
+                    placeholder=" State"
                     onChange ={updateForm} 
                     value = {form.state}
                 />
-                <button
-                    type = "submit"
-                    id= "searchbtn"
-                    className = "searchbtn" 
-                    > Search </button>
+            
+
             </div>
             <div class="card">
 
@@ -89,4 +116,4 @@ function Search(){
     )
 }
 
-export default Search;
+export default SearchFunc;

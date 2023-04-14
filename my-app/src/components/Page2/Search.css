@@ -4,32 +4,46 @@
     
 }
 
-
-.Search {
+.search {
+    position: relative;
     display: flex;
-    margin-left: 0;
-    /* float: left; */
-
+    padding-bottom: 2vw;
+    justify-content: center;
 }
 
-.form-input input{
-    border-radius: 50%;
+.search-icon {
+    position: absolute;
+    top: 14%;
+    left: 28%;
+    font-size: 2.2rem;
+  }
+
+
+
+.form-input{
+    padding:10px;
+    width: 700px;
+    border: 2px solid #0d0909;
+   border-radius: 30px;
+   font-size: 25px;
+   padding-left: 60px;
 }
+
+.form-input:hover{
+    color:black;
+    background-color: rgb(237, 252, 221);
+}
+
 
 
 .card{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    /* gap: 0.1rem; */
-    
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));   
 }
 
 .container {
     /* border: 1px solid #645959; */
     padding: 25px
-
-    
-
 }
 .container:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -37,16 +51,14 @@
    
 }
 
-
 img{
     border-radius: 15px;
-  }
+}
 
 .title {
     display: flex;
     justify-content: space-between;
 }
-
 
 .bookBtn {
     text-align: center;

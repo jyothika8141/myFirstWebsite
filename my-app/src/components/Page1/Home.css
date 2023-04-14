@@ -30,39 +30,51 @@ p {
 }
 
 #explore {
-    padding: 1.5vw;
+    padding: 1vw;
     background-color: black;
     border: black;
-    font-size: 30px;
+    font-size: 25px;
     color: white;
-    width: 200px;
+    width: 150px;
     border-radius: 40px;
-
 }
 
 .explore{
     color: white
 }
 
+
 .below{
     vertical-align: middle;
     text-align: center;
     align-items: center;
-    color: rgb(32, 32, 93); 
-    background-color: rgb(253, 229, 211);
-    padding: 2vw;
+    color: rgb(3, 3, 17); 
+    background-color: white;
+    /* padding: 2vw; */
 }
 
 .vision{
-    width: 50vw;
-    font: 3rem;
+    color: white;
+    width: 100%;
     position: relative;
-    padding: 3vw;
+    padding: 5rem;
     flex-direction: column;
     justify-content: center;
-  
     align-items: center;
+    background-color: black;
+    margin: 0 auto;
+}
 
+.culture {
+    padding-top: 7vh;
+    text-align: center;
+}
+
+.vision p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 auto;
 }
 
 h2 {
@@ -71,14 +83,28 @@ h2 {
     padding-bottom: 2vw;
 }
 
-h3 {
-    font-size: 5 rem;
+
+.culture p {
+    font-size: 2.25rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.quiet p {
+    font-size: 2.25rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .images{ 
     justify-content: center;
     display: flex;
-    /* padding-left: 10vw; */
 }
 #img{
     
@@ -86,9 +112,8 @@ h3 {
     width: 17vw;
     padding-bottom: 5vw;
     object-fit: cover;
-    /* padding: m; */
-    /* height: 10vw; */
 }
+
 
 #img2 {
     
@@ -96,27 +121,16 @@ h3 {
     width: 28vw;
     padding-bottom: 5vw;
     object-fit: cover;
-    /* padding: m; */
-    /* height: 10vw; */
 }
 
 #img2:hover, #img:hover {
     opacity: 0.5;
     overflow: hidden;
-    transform: rotateY(30deg);
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.03);
-    transition: 1s ease;
+
   }
-  
-/* .img:hover .middle {
-opacity: 1;
-}
-   */
+
   .text {
     display: none;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
     position: absolute;

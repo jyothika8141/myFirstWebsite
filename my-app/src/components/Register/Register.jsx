@@ -55,9 +55,9 @@ export default function Form(){
         <motion.div 
             className='register'
             
-            initial={{width: 0}}
-            animate={{width: '100%', transition: {duration: 0.1}}}
-            exit={{ x: window.innerWidth, transition: {duration: 0.1} }}
+            initial={{width: '50%'}}
+            animate={{width: '100%', transition: {duration: 0.8}}}
+            exit={{ x: window.innerWidth, transition: {duration: 0.7} }}
              
             > 
         <motion.div 
@@ -65,7 +65,7 @@ export default function Form(){
                 
                initial={{height: 0}}
                animate={{height: '85vh', transition: {duration: 0.1}}}
-               exit={{ x: window.innerWidth, transition: {duration: 0.1} }}>
+               exit={{ x: window.innerWidth, transition: {duration: 0.3} }}>
 
             <h1 className = "form-title"> Register your place </h1>
             <form class="Labels" >
@@ -99,10 +99,8 @@ export default function Form(){
                 />
 
                 </div>
-
                 <div className = "place-details">
                 <label><b> Place details </b></label>
-            
                 <input 
                     type ="text" 
                     className = "form-input"
@@ -130,7 +128,6 @@ export default function Form(){
                     value = {form.state}
                 />
                 
-                
                 <input 
                     type ="text" 
                     className = "form-input"
@@ -141,16 +138,13 @@ export default function Form(){
                 />
 
                 <input 
-                    type ="file-upload-input" 
-                    className = "file"
-                    // onChange="readURL(this)"
-                    accept='Image/*'
-                    name ="images" 
+                    type ="file" 
+                    className = "file"    
+                    name ="image" 
                     placeholder="Add image"
                     onChange ={updateForm} 
                     value = {form.image}
                 />
-               
                 </div>
                
                <button 
@@ -158,8 +152,6 @@ export default function Form(){
                 className = "submitBtn" 
                 onClick = { submitForm }
                 > <Link id="t" to="/"> Submit </Link></button>
-           
-
             </form>
 
         </motion.div>   
@@ -167,3 +159,4 @@ export default function Form(){
 
     )
 }
+
