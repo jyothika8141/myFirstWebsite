@@ -40,6 +40,26 @@ const Home = () => {
       img: 'https://assets.traveltriangle.com/blog/wp-content/uploads/2016/11/Mawlynnong.jpg',
       title: 'Mawlynnong',
     },
+    {
+      img: 'https://img.etimg.com/photo/msid-96396438/malana.jpg',
+      title : 'Malana',
+    }
+  ];
+
+  const itemData3 = [
+    {
+      img: 'https://ihplb.b-cdn.net/wp-content/uploads/2018/07/bishnoi-villages.jpg',
+      title: 'Bishnoi',
+    },
+    {
+      img: 'https://img.etimg.com/photo/msid-96396438/malana.jpg',
+      title : 'Malana',
+    },
+    {
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Cropped_Tripuri.jpg/640px-Cropped_Tripuri.jpg',
+      title: 'Mawlynnong',
+    },
+    
   ];
 
 
@@ -85,8 +105,52 @@ const Home = () => {
           <p><b>Our vision is to harness the cultural and natural resources of rural areas to develop a sustainable tourism sector that provides engaging and authentic experiences for visitors, while promoting local employment, preserving local heritage and culture, and empowering rural communities.</b> </p>
         </div>
 
+        <div className="quiet">
+          <p> <b>Experience the peacefulness </b> </p>
+
+          <div class="images">
+          <ImageList cols={4}>
+            {itemData2.map((item) => (
+              <ImageListItem key={item.img}>
+                <img id="img2"
+                  src={`${item.img}`}
+                  alt={item.title}
+                  loading="lazy"
+                />
+                <div className="text">
+                   {item.title}
+                </div>
+              </ImageListItem>
+
+            ))}
+          </ImageList>
+          </div>
+        </div>
+
         <div className="culture">
         <p> <b>Discover the rich cultural heritage</b> </p>
+        <div class="images">
+          <ImageList cols={4}>
+            {itemData3.map((item) => (
+              <ImageListItem key={item.img}>
+                <img id="img"
+                  src={`${item.img}`}
+                  alt={item.title}
+                />
+                <div className="text">
+                   {item.title} 
+                </div>
+              </ImageListItem>
+
+            ))}
+          </ImageList>
+          </div>
+
+          </div>
+
+        
+        <div className="people">
+        <p> <b>Interact with the local community</b> </p>
         <div class="images">
           <ImageList cols={4}>
             {itemData.map((item) => (
@@ -105,28 +169,6 @@ const Home = () => {
           </div>
 
           </div>
-
-        <div className="quiet">
-          <p> <b>Experience the peacefulness </b> </p>
-
-          <div class="images">
-          <ImageList cols={3}>
-            {itemData2.map((item) => (
-              <ImageListItem key={item.img}>
-                <img id="img2"
-                  src={`${item.img}`}
-                  alt={item.title}
-                  loading="lazy"
-                />
-                <div className="text">
-                   {item.title}
-                </div>
-              </ImageListItem>
-
-            ))}
-          </ImageList>
-          </div>
-        </div>
         </div>
     </motion.div>
   );

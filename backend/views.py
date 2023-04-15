@@ -2,7 +2,7 @@
 this page uses the json format data and displays it in ListCreateapiView
 """
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .serializers import UserSerializer, CreateUserSerializer
 from .models import UserDet
 from rest_framework.views import APIView
@@ -11,6 +11,8 @@ from rest_framework import status
 from django.core.serializers import serialize
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
+
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 class UserView(generics.ListCreateAPIView):
@@ -34,50 +36,42 @@ class GetAllUser(APIView):
             return Response("Bad Request", status=status.HTTP_400_BAD_REQUEST)
 
 
-# class GetUser(APIView):
-#     serializer_class = UserSerializer
-
-#     def get(self, request, format=None):
-#             user_data= User.objects.all()
-#             if user_data:
-#                 return Response(user_data, status=status.HTTP_200_OK)
-#             else:
-#                 return Response("Bad Request", status=status.HTTP_400_BAD_REQUEST)
-
-
 class CreateUserView(APIView):
     serializer_class = CreateUserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    parser_classes = (MultiPartParser, FormParser)
 
+    @csrf_exempt
     def post(self, request, format=None):
+        print(request.data)
        
         serializer = self.serializer_class(data=request.data)
-       
+        
         if serializer.is_valid():
-            image_file = request.FILES.get('image')
+            image_file = request.FILES['image']
             if image_file:
                 filename = default_storage.save(image_file,ContentFile(image_file.read()))
                 image_url = default_storage.url(filename)
                 serializer.validated_data['image'] = image_url
-            available = serializer.data.get('available')
             name_place = serializer.data.get('name_place')
             district = serializer.data.get('district')
             state = serializer.data.get('state')
             price = serializer.data.get('price')
             # image = serializer.data.get('image')
-
+        
             name_person = serializer.data.get('name_person')
             email = serializer.data.get('email')
             phone = serializer.data.get('phone') 
-            
-            # queryset = User.objects.filter(id=id)
-            # if queryset.exists():
-            #     user = queryset[0]
-            #     user.available = available
-            #     user.save(update_fields=['available'])
-            #     return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
-            # else:
-            user = UserDet(available=available, name_place=name_place, district=district, state=state, price=price, image=image_url, name_person=name_person, email=email, phone=phone)
+
+            user = UserDet(name_place=name_place, district=district, state=state, price=price, name_person=name_person, email=email, phone=phone)
             user.save()
             return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
         print(serializer.errors)
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+
+
+
+

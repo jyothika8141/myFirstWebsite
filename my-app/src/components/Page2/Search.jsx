@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Button } from '@mui/material';
-import { Search } from '@mui/icons-material';
+// import { Search } from '@mui/icons-material';
 import { FaSearch } from 'react-icons/fa';
 import "./Search.css";
 import {useState} from 'react';
@@ -26,19 +26,25 @@ function SearchFunc(){
 
 
     useEffect(() => {
-        fetch('userdetails/get')
+        console.log('in herr')
+        fetch('http://127.0.0.1:8000/userdetails/get')
         .then(response => response.json())
         .then((data) => {
             setDetails(data);
-            setDetails2(data);})
+            setDetails2(data);
+            console.log(data);
+        }).catch((error) => {
+            console.log(error);
+        })
 
         }, []);
-            
+        
+
     const userinfo = details.map(detail => (
         <div className="cards">
             <div className="container">
             <div className="img">
-                    <img src={ detail.image } alt="image" width="450px" height="300px"/>
+                    <img src={ detail.image } alt="" width="450px" height="300px"/>
                 </div>
                 <div className="title">
                     <h3>{detail.name_place}</h3>
@@ -64,7 +70,7 @@ function SearchFunc(){
     
     function Searching(){
         console.log(form.state)
-        if (form.state == ""){
+        if (form.state === ""){
            setDetails(details2)
         }
         else{

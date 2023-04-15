@@ -13,7 +13,7 @@
 
 
 .form-box{
-    min-height: 85vh;
+    height: 85vh;
     min-width: 30vw;
     border: 2px solid white;
     padding: 2rem;
@@ -83,14 +83,18 @@ button {
     border: none;
     position: relative;
     bottom: 0;
-    background-color: #030000;
+    background-color: #000000;
     margin: 0 auto;
     border-radius: 40px;
     width: 30vh;
     text-transform: uppercase;
     cursor: pointer;
     height:6vh;   
+    color: white;
+    font-size : 1.5rem;
 } 
+
+
 
 .submitBtn:hover {
     background-color: rgb(29, 61, 29);
