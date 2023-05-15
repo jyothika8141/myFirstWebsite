@@ -39,7 +39,7 @@ class GetAllUser(APIView):
 class CreateUserView(APIView):
     serializer_class = CreateUserSerializer
     permission_classes = [permissions.IsAuthenticated]
-    parser_classes = (MultiPartParser, FormParser)
+    # parser_classes = (MultiPartParser, FormParser)
 
     @csrf_exempt
     def post(self, request, format=None):

@@ -52,14 +52,17 @@ const Home = () => {
       title: 'Bishnoi',
     },
     {
-      img: 'https://img.etimg.com/photo/msid-96396438/malana.jpg',
-      title : 'Malana',
+      img: 'https://media.istockphoto.com/id/1278254215/photo/group-of-happy-gypsy-indian-children-desert-village-india.jpg?s=170667a&w=0&k=20&c=2r_M-Lzh15XfPAXgddNr4M0gjEYqr-fLOfTbuISh8cU=',
+      title : 'Desert',
     },
     {
       img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Cropped_Tripuri.jpg/640px-Cropped_Tripuri.jpg',
-      title: 'Mawlynnong',
+      title: 'Tripura',
     },
-    
+    {
+      img: 'https://i.pinimg.com/736x/a8/a9/10/a8a9107d24a35620bba186fdc6ac6d9a--rajasthan-india-beautiful-flowers.jpg',
+      title:'happy'
+    }
   ];
 
 
@@ -128,7 +131,8 @@ const Home = () => {
         </div>
 
         <div className="culture">
-        <p> <b>Discover the rich cultural heritage</b> </p>
+        <p> <b>Interact with the local community</b> </p>
+        
         <div class="images">
           <ImageList cols={4}>
             {itemData3.map((item) => (
@@ -150,8 +154,8 @@ const Home = () => {
 
         
         <div className="people">
-        <p> <b>Interact with the local community</b> </p>
-        <div class="images">
+        <p> <b>Discover the rich cultural heritage</b> </p>
+          <div class="images">
           <ImageList cols={4}>
             {itemData.map((item) => (
               <ImageListItem key={item.img}>

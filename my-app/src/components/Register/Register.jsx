@@ -15,11 +15,10 @@ export default function Form() {
     phone: "",
     email: "",
 
-    price: "",
-    image: null,
+    price: ""
   });
 
-  const [imageForm, setImageForm] = useState(null);
+  const [imageForm, setImageForm] = useState({image : null});
 
   const updateForm = (e) => {
     if ([e.target.name] === "image") {
@@ -39,10 +38,12 @@ export default function Form() {
 
   const config = {
     headers: {
-      Accept: "application/json, text/plain, /",
-      "Content-Type": "multipart/form-data",
+      "Accept" : "application/json, text/plain, /",
+      "Content-Type": "multipart/form-data",  
+      // Authorization' : 'Bearer <token_here>'
     },
-    baseURL: "http://127.0.0.1:8000",
+    mode: 'no-cors',
+    baseURL: "http://127.0.0.1:8000/",
   };
 
   const data = {
@@ -53,7 +54,7 @@ export default function Form() {
     email: form.email,
     phone: form.phone,
     price: form.price,
-    image: imageForm.image,
+    image: imageForm,
   };
 
   const submitForm = (e) => {
@@ -61,10 +62,12 @@ export default function Form() {
     console.log(data)
     // window.confirm("Your place has been successfully registered.");
     
+    // axios.defaults.proxy.host = "http://127.0.0.1";
+    // axios.defaults.proxy.port = '8000'
 
     e.preventDefault();
     axios
-      .post("/userdetails/create", data, config)
+      .post("userdetails/create", data, config)
       .then((response) => {
         console.log(response);
       })

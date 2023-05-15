@@ -15,7 +15,7 @@ export default function Footer() {
 
               {" "}
               Hello, and welcome to Heritage Trails! My name is
-              [Name], and I am the founder of this initiative. As a passionate
+              Jyothika, and I am the founder of this initiative. As a passionate
               traveler and a local community member, I believe in the power of
               responsible and sustainable tourism. By promoting local culture
               and heritage, creating authentic rural experiences, and supporting
@@ -29,24 +29,12 @@ export default function Footer() {
             {" "}
             <b> Contact Us </b>{" "}
           </h3>
-          <p>
-            {" "}
-            <b>
-              {" "}
+          {/* <p id="contact">
               Email: heritagetrails@email.com
-              Phone: +91 1234567890
-              
-            </b>{" "}
           </p>
-
           <p>
-            {" "}
-            <b>
-              {" "}
-            Follow us on social media:
-              
-            </b>{" "}
-          </p>
+              Phone: +91 1234567890 
+          </p> */}
         </div>
       </div>
     </footer>

@@ -26,7 +26,7 @@ function SearchFunc(){
 
 
     useEffect(() => {
-        console.log('in herr')
+        console.log('in here')
         fetch('http://127.0.0.1:8000/userdetails/get')
         .then(response => response.json())
         .then((data) => {
@@ -40,7 +40,7 @@ function SearchFunc(){
         }, []);
         
 
-    const userinfo = details.map(detail => (
+    const userinfo = Array.from(details).map((detail) => (
         <div className="cards">
             <div className="container">
             <div className="img">

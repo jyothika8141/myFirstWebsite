@@ -1,16 +1,28 @@
 footer {
     color: white;
     background-color: black;
-    height: 40vh;
+    height: 60vh;
     bottom: 0;
     text-align: center;
     display: column-reverse;
+    padding-top: 8vh;
+}
+h3 {
+    padding-bottom:3vh;
 }
 
-/* .para {
-    position: absolute;
+.para {
+    padding-left: 60vh;
+    position: relative;
     text-align: center;
     font-size: 1.2rem;
     max-width: 70%;
+    padding-bottom: 10vh;
 
-} */
+}
+
+#contact {
+    left : -100px;
+    padding-left: 40vh;
+    text-align: center;
+}
